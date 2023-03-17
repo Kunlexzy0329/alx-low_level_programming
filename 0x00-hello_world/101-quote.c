@@ -1,0 +1,12 @@
+#include <stdio.h>
+#include <unistd.h>
+/**
+ *main-print the string of the write function
+ *
+ * Return:1 if (success)
+ */
+int main(void)
+{
+	write(2,"and that piece of art is useful\" - Dora Korper, 2015-10-19",58);
+	return (1);
+}
