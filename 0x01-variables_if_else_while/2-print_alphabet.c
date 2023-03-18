@@ -1,8 +1,8 @@
 #include <stdio.h>
 /**
- * main- start point
- * putchar function translate num to ascii 
- * Return: 0 if successful
+ *main- start point
+ *putchar function translate num to ascii 
+ *Return:0 if successful
  */
 
 int main(void)
