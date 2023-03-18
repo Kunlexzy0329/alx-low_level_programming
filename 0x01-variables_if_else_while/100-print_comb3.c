@@ -17,6 +17,7 @@ int main(void)
 		{
 			putchar((a % 10) + '0');
 			putchar((b % 10) + '0');
+
 			if ((a % 10) == 8)
 				{
 					if ((b % 10) == 9)
@@ -24,6 +25,7 @@ int main(void)
 						continue;
 					}
 				}
+
 			putchar(44);
 			putchar(' ');
 		}
