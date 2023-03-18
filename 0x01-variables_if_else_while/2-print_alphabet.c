@@ -1,8 +1,8 @@
 #include <stdio.h>
 /**
- *main- start point
- * 
- *Return:0 if successful
+ *main- print out the character
+ *
+ *Return:0 always
  */
 
 int main(void)
