@@ -6,7 +6,7 @@
  * Return:0 if successful
  */
 
-int main()
+int main(void)
 {
 	int a;
 	int b;
@@ -21,15 +21,9 @@ int main()
 				putchar((a % 10) + '0');
 				putchar((b % 10) + '0');
 				putchar((c % 10) + '0');
-				if ((a % 10) == 7)
+				if ((a % 10) == 7 && ((b % 10) == 8) && ((c % 10) == 9))
 				{
-					if ((b % 10) == 8)
-					{
-						if ((c % 10) == 9)
-						{
-							continue;
-						}
-					}
+					continue;
 				}
 				putchar(44);
 				putchar(' ');
@@ -39,3 +33,4 @@ int main()
 	putchar('\n');
 	return (0);
 }
+
