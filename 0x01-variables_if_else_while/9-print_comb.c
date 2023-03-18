@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
- * main-start point 
+ * main-start point
  *
  * Return:0 if successful
  */
@@ -12,7 +12,7 @@ int main(void)
 	for (a = 0; a <= 9; ++a)
 	{
 		putchar((a % 10) + '0');
-		if ((a % 10) ==9)
+		if ((a % 10) == 9)
 		{
 			continue;
 		}
