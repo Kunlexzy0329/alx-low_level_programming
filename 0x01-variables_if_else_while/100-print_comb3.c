@@ -1,9 +1,9 @@
 #include <stdio.h>
 /**
  * main- start point
- * putchar to print double number
- * using nested loop to control the program
- * Return:0 if true
+ * putchar to print the output in combination ot two digit
+ * if statement is used to control the loop
+ * Return:0 always
  */
 
 int main(void)
@@ -17,15 +17,10 @@ int main(void)
 		{
 			putchar((a % 10) + '0');
 			putchar((b % 10) + '0');
-
-			if ((a % 10) == 8)
-				{
-					if ((b % 10) == 9)
-					{
-						continue;
-					}
-				}
-
+			if ((a == 8) && (b == 9))
+			{
+				continue;
+			}
 			putchar(44);
 			putchar(' ');
 		}
