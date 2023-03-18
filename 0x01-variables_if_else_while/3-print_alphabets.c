@@ -1,8 +1,8 @@
 #include <stdio.h>
 /**
- *main-print both the lowercase and uppercase
+ *main- print lower and uppercase simultaneously
  *
- * Return:0 if successful
+ *Return:0 if successful
  */
 
 int main(void)
