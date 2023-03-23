@@ -1,4 +1,4 @@
-#include "main.c"
+#include "main.h"
 /**
  * _isalpha- function that print if parameter is lowercase or uppercase
  * @c: parameter to be printed
