@@ -1,14 +1,15 @@
 #include "main.h"
 /**
- *main- start point 
+ * main- the start point
  *
- * Return:0 always
+ * Return: 0 if successful
  */
+
 int main(void)
 {
 	char *name = "_putchar";
 
-	for (; *name ; name++)
+	for (; *name; name++)
 	{
 		_putchar(*name);
 	}
