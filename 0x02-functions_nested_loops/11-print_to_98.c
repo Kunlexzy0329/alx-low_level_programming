@@ -1,8 +1,8 @@
 #include "main.h"
 #include <stdio.h>
 /**
- * main - function to print numbers 0 through 98
- *
+ * print_to_98 - function to print numbers 0 through 98
+ * @n: parameter to print
  * Return:0 always
  *
  */
