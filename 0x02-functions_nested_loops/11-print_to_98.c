@@ -1,3 +1,4 @@
+#include "main.h"
 #include <stdio.h>
 /**
  * main - function to print numbers 0 through 98
@@ -5,10 +6,8 @@
  * Return:0 always
  *
  */
-int main(void)
+void print_to_98(int n)
 {
-	int n;
-
 	if (n <= 98)
 	{
 		for (; n <= 98; n++)
@@ -41,5 +40,4 @@ int main(void)
 			}
 		}
 	}
-	return (0);
 }
