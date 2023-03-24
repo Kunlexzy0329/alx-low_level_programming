@@ -23,6 +23,8 @@ void print_times_table(int n)
 
 			mult = m * n;
 			_putchar(mult + '0');
+			_putchar(',');
+			_putchar(' ');
 		}
 		_putchar('\n');
 	}
