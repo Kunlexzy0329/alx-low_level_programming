@@ -10,22 +10,39 @@
 void print_times_table(int n)
 {
 	int m;
+	int a;
 	int mult;
 
-	for (n = 0; n <= 12; n++)
+	if (n >= 0 && n <= 15)
 	{
-		for (m = 0; m <= 12; m++)
+		for (a = 0; a <= n; n++)
 		{
-			if (n < 0 || n > 15)
+			_putchar('0');
+			for (m = 0; m <= n; m++)
 			{
-				break;
+				_putchar(',');
+				_putchar(' ');
+				mult = a * m;
+				if (mult <= 99)
+					_putchar(' ');
+				if (mult <= 9)
+					_putchar(' ');
+				if (mult >= 100)
+				{
+					_putchar((mult / 100) + '0');
+					_putchar(((mult / 10)) % 10 + '0');
+				}
+				else if (mult <= 99 && mult >= 10)
+				{
+					_putchar((mult / 10) + '0');
+				}
+				_putchar((mult % 10) + '0');
 			}
-
-			mult = m * n;
-			_putchar(mult + '0');
-			_putchar(',');
-			_putchar(' ');
+			_putchar('\n');
 		}
-		_putchar('\n');
+	}
+	else if (n < 0 || n > 15)
+	{
+		putchar('\n');
 	}
 }
