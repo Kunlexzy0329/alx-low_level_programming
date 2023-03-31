@@ -24,9 +24,12 @@ void print_number(int n)
 	{
 		j++;
 		temp = temp / 10;
+		temp = temp % 10;
 	}
 	for (count = 1; count < j; count++)
+	{
 		pow = pow / 10;
+	}
 	while (pow > 1)
 	{
 		_putchar((i / pow) % 10 + '0');
