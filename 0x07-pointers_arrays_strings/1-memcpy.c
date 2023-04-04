@@ -13,6 +13,6 @@ char *_memcpy(char *dest, char *src, unsigned int n)
 
 	for (count = 0; src[count] != '\0', count < n; count++)
 		dest[count] = src[count];
-	return (dest);
 	dest[count] = '\0';
+	return (dest);
 }
