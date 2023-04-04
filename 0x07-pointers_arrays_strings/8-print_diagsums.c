@@ -19,11 +19,11 @@ void print_diagsums(int *a, int size)
 	}
 	if ((sum1 != *(a + i * size + i) - 1))
 	{
-		printf("%d,\t", sum1);
+		printf("%d, ", sum1);
 	}
 	else
 	{
-		printf("%d\t", sum1);
+		printf("%d", sum1);
 	}
 	printf("%d\n", sum2);
 }
