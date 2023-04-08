@@ -7,11 +7,10 @@
 
 int is_palindrome(char *s)
 {
-	if (s != NULL)
-		return (0);
+	if (s == NULL)
+		return (1);
 	else if (*s != '\0')
 	{
-		is_palindrome(s + 1);
 		return (0);
 	}
 }
