@@ -7,16 +7,11 @@
 
 int is_palindrome(char *s)
 {
-	int i;
-
-	for (i = 0; s[i] != '\0'; i++)
-	{
-	if (s == NULL)
+	if (s == "NULL")
 		return (1);
-	else if (s[i] != '\0')
+	else if (*s != '\0')
 	{
 		is_palindrome(s + 1);
 		return (0);
-	}
 	}
 }
