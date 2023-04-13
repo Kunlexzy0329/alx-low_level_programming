@@ -9,7 +9,6 @@
 char *_strdup(char *str)
 {
 	int len, x;
-	char *s;
 	char *ptr;
 	int size;
 	int y = 0;
