@@ -19,7 +19,7 @@ int (*get_op_func(char *s))(int, int)
 		{NULL, NULL}
 	};
 
-	for (; k < 10; )
+	while(k < 10)
 	{
 		if (s[0] == ops->op[k])
 			break;
