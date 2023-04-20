@@ -12,14 +12,13 @@ int (*get_op_func(char *s))(int, int)
 	int k = 0;
 	op_t ops[] = {
 		{"+", op_add},
-		{"-", op_sub},
+		{" -", op_sub},
 		{"*", op_mul},
 		{"/", op_div},
 		{"%", op_mod},
 		{NULL, NULL}
 	};
-
-	while(k < 10)
+	while (k < 10)
 	{
 		if (s[0] == ops->op[k])
 			break;
