@@ -6,9 +6,9 @@
  *Return: 0 always
  */
 
-int main(int argc, char *argv[])
+int main(int argc, __attribute__((unused)) char *argv[])
 {
-	if (argc > 1)
+	if (argc > 0)
 		printf("%d\n", argc);
 	return (0);
 }
