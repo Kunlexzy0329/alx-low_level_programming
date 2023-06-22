@@ -11,7 +11,6 @@ int sum_them_all(const unsigned int n, ...)
 {
 	va_list args;
 	unsigned int sum = 0;
-	unsigned int num;
 	unsigned int i;
 
 	va_start(args, n);
@@ -19,8 +18,7 @@ int sum_them_all(const unsigned int n, ...)
 		return (0);
 	for (i = 0; i < n; i++)
 	{
-		num = va_avg(args, int);
-		sum += num;
+		sum += va_arg(args, int);
 	}
 	va_end(args);
 
