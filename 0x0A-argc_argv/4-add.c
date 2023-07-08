@@ -2,7 +2,7 @@
 
 /**
  *is_digit - function that return digit
- *@s: the string
+ *@c: the string
  *Return: digit to the main
  */
 int is_digit(char c)
