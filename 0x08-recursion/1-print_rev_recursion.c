@@ -1,9 +1,8 @@
 #include "main.h"
 
 /**
- *
- *
- *
+ *_print_rev_recursion- the reverse function
+ *@s: the string to reverse
  *
  */
 
