@@ -12,14 +12,13 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	char *allocate = NULL;
 	unsigned int j = 0;
 
-	if (size == 0 || nmemb == 0)
+	if (nmemb == 0 || size == 0)
 		return (NULL);
 	allocate = malloc(size * nmemb);
 	if (allocate == NULL)
 		return (NULL);
-	for (; j < nmemb * size;)
+	for (j = 0; j < nmemb * size; j++)
 	{
-		j++;
 		allocate[j] = 0;
 	}
 	return ((void *)allocate);
