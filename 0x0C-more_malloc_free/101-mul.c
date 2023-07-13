@@ -40,7 +40,7 @@ int validate_input(char *str)
  */
 int main(int argc, char *argv[])
 {
-	int num1, num2, result;
+	int n1, n2, result;
 
 	if (argc != 3)
 	{
@@ -54,9 +54,9 @@ int main(int argc, char *argv[])
 		return (98);
 	}
 
-	num1 = atoi(argv[1]);
-	num2 = atoi(argv[2]);
-	result = multiply(num1, num2);
+	n1 = atoi(argv[1]);
+	n2 = atoi(argv[2]);
+	result = multiply(n1, n2);
 
 	printf("%d\n", result);
 
