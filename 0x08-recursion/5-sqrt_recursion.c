@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * root_square - Returns the natural square root of a number
+ *square_helper - Returns the natural square root of a number
  * otherwise return 0.
  *@n: result to find.
  * @num: number multiply by itself give the result.
@@ -14,8 +14,7 @@ int square_helper(int num, int n)
 		return (num);
 	else if (num * num > n)
 		return (-1);
-	else
-		num++;
+	num++;
 	return (square_helper(num, n));
 }
 
@@ -34,6 +33,5 @@ int _sqrt_recursion(int n)
 		return (0);
 	if (n == 1)
 		return (1);
-	else
-		return (square_helper(2, n));
+	return (square_helper(2, n));
 }
