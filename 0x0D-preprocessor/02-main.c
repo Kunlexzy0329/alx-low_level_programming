@@ -1,8 +1,9 @@
 #include <stdio.h>
+#include "main.h"
 
 /**
  *main- start program
- *
+ *@void: the void parameter
  *Return: 0 always
  */
 
