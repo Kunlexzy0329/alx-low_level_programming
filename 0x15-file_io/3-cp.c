@@ -1,81 +1,86 @@
 #include "main.h"
-#define BUFFER_SIZE 1024
 
 /**
-* copyFile - Copies the contents of one file to another.
-* @src: The name of the source file.
-* @dst: The name of the destination file.
+* createBuf - Allocates a buffer of 1024 bytes.
+* @file: The name of the file buffer is being allocated for.
 *
-* Return: 0 on success, non-zero on failure.
+* Return: A pointer to the newly-allocated buffer.
 */
-int copyFile(const char *src, const char *dst)
+char *createBuf(char *file)
 {
-	int src_fd, dst_fd, bytes_read, bytes_written;
-	char buffer[BUFFER_SIZE];
+	char *buf;
 
-	if (src == NULL || dst == NULL)
-	{
-		fprintf(stderr, "Usage: copyFile source_file destination_file\n");
+	buf = malloc(sizeof(char) * 1024);
 
-		return (1);
-	}
-	src_fd = open(src, O_RDONLY);
-	if (src_fd == -1)
+	if (buf == NULL)
 	{
-		perror("Error: Can't open source file");
-		return (1);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file);
+		exit(99);
 	}
-	dst_fd = open(dst, O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	if (dst_fd == -1)
-	{
-		perror("Error: Can't open destination file");
-		close(src_fd);
-		return (1);
-	}
-	while ((bytes_read = read(src_fd, buffer, BUFFER_SIZE)) > 0)
-	{
-		bytes_written = write(dst_fd, buffer, bytes_read);
-		if (bytes_written != bytes_read)
-		{
-			perror("Error: Write to destination file failed");
-			close(src_fd);
-			close(dst_fd);
-			return (1);
-		}
-	}
-
-/**Close files*/
-	close(src_fd);
-	close(dst_fd);
-	return (0);
+	return (buf);
 }
 
 /**
- *main- command line arguments
- *@argc: argument count
- *@argv: pointer to the argument vector
- *Return: values to the consol
- */
+* closeFd - Closes a file descriptor.
+* @fd: The file descriptor to be closed.
+*/
+void closeFd(int fd)
+{
+	int result;
 
+	result = close(fd);
+	if (result == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+		exit(100);
+	}
+}
+
+/**
+* main - Copies the contents of a source file to a destination file.
+* @argc: argument counter
+* @argv:  pointers to the arguments vector.
+*
+* Return: 0 on success.
+*
+* Description: If the argument count is incorrect - exit code 97.
+*If the source file does not exist or cannot be read - exit code 98.
+*If the destination file cannot be created or written to - exit code 99.
+*If the source or destination file cannot be closed - exit code 100.
+*/
 int main(int argc, char *argv[])
 {
-	const char *src, *dst;
+	int srcFd, dstFd, bytesRd, bytesWr;
+	char *buf;
 
 	if (argc != 3)
 	{
-		fprintf(stderr, "Usage: copyFile source_file destination_file\n");
-		return (1);
+		dprintf(STDERR_FILENO, "Usage: cp source_file destination_file\n");
+		exit(97);
 	}
-	src = argv[1];
-	dst = argv[2];
-	if (copyFile(src, dst) == 0)
-	{
-		printf("File copied successfully.\n");
-		return (0);
-	}
-	else
-	{
-		fprintf(stderr, "File copy failed.\n");
-		return (1);
-	}
+	buf = createBuf(argv[2]);
+	srcFd = open(argv[1], O_RDONLY);
+	bytesRd = read(srcFd, buf, 1024);
+	dstFd = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	do {
+		if (srcFd == -1 || bytesRd == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+			free(buf);
+			exit(98);
+		}
+		bytesWr = write(dstFd, buf, bytesRd);
+		if (dstFd == -1 || bytesWr == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
+			free(buf);
+			exit(99);
+		}
+		bytesRd = read(srcFd, buf, 1024);
+		dstFd = open(argv[2], O_WRONLY | O_APPEND);
+	} while (bytesRd > 0);
+	free(buf);
+	closeFd(srcFd);
+	closeFd(dstFd);
+	return (0);
 }
